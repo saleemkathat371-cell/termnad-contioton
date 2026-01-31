@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terms & Conditions</title>
+
+<style>
+  * {
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+
+  body {
+    margin: 0;
+    background: linear-gradient(135deg, #2f6fb2, #6faf8a);
+    min-height: 100vh;
+    padding: 16px;
+  }
+
+  .container {
+    max-width: 420px;
+    margin: auto;
+    background: #fff;
+    border-radius: 22px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .header {
+    padding: 18px;
+    background: linear-gradient(135deg, #2f6fb2, #6faf8a);
+    color: #fff;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  .content {
+    padding: 16px;
+    overflow-y: auto;
+    max-height: 60vh;
+  }
+
+  .content h3 {
+    font-size: 15px;
+    margin-top: 16px;
+    margin-bottom: 6px;
+    color: #2f6fb2;
+  }
+
+  .content p {
+    font-size: 13px;
+    color: #555;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .footer {
+    padding: 14px;
+    border-top: 1px solid #eee;
+  }
+
+  .agree-box {
+    display: flex;
+    align-items: center;
+    font-size: 13px;
+    margin-bottom: 12px;
+  }
+
+  .agree-box input {
+    margin-right: 8px;
+  }
+
+  .btn {
+    width: 100%;
+    height: 46px;
+    border-radius: 23px;
+    border: none;
+    background: #6faf8a;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  .btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+  }
+
+  .close {
+    text-align: center;
+    font-size: 12px;
+    color: #888;
+    margin-top: 8px;
+    cursor: pointer;
+  }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <!-- HEADER -->
+  <div class="header">
+    Terms & Conditions
+  </div>
+
+  <!-- CONTENT -->
+  <div class="content">
+    <h3>1. Acceptance of Terms</h3>
+    <p>
+      By using this application, you agree to follow and be bound by these
+      Terms & Conditions. If you do not agree, please do not use the app.
+    </p>
+
+    <h3>2. User Responsibility</h3>
+    <p>
+      Users are responsible for providing accurate information including
+      name, phone number, and appointment details.
+    </p>
+
+    <h3>3. App Usage</h3>
+    <p>
+      This app is designed to manage doctor queues and appointments.
+      Any misuse or attempt to manipulate the system is prohibited.
+    </p>
+
+    <h3>4. Data Privacy</h3>
+    <p>
+      We respect your privacy. Your personal data will not be shared
+      without consent, except where required by law.
+    </p>
+
+    <h3>5. Appointment Policy</h3>
+    <p>
+      Appointment timings are approximate. Delays may occur depending
+      on doctor availability and emergencies.
+    </p>
+
+    <h3>6. Changes to Terms</h3>
+    <p>
+      We reserve the right to update these Terms & Conditions at any time
+      without prior notice.
+    </p>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="agree-box">
+      <input type="checkbox" id="agree" onchange="toggleBtn()">
+      <label for="agree">I have read and agree to the Terms & Conditions</label>
+    </div>
+
+    <button class="btn" id="btn" disabled onclick="acceptTerms()">
+      Accept & Continue
+    </button>
+
+    <div class="close" onclick="goBack()">
+      Close
+    </div>
+  </div>
+
+</div>
+
+<script>
+  function toggleBtn() {
+    document.getElementById("btn").disabled =
+      !document.getElementById("agree").checked;
+  }
+
+  function acceptTerms() {
+    alert("Terms accepted successfully");
+    // yahan localStorage / app redirect laga sakte ho
+    // localStorage.setItem("termsAccepted", "true");
+    goBack();
+  }
+
+  function goBack() {
+    window.history.back();
+  }
+</script>
+
+</body>
+</html>
